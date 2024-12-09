@@ -27,8 +27,25 @@ class Solution {
             }
             maxValue --;
         }
-        result.add()
+        result.add(returnTarget(map));
+        ArrayList<Integer> buffer = new ArrayList<>();
+        for (int i = 0; i < result.size() && i < k; i++){
+            if (result.get(i) == maxValue){
+                buffer.add(i);
+                maxValue--;
+            }
+        }
         System.out.println(map);
+        return result;
+    }
+
+    public static int returnTarget(Hashtable<Integer, Integer> map){
+        int result = 0;
+        for(Map.Entry<Integer, Integer> current : map.entrySet()){
+            if (current.getValue() == 1){
+                result = Math.max(result, current.getKey());
+            }
+        }
         return result;
     }
 }
